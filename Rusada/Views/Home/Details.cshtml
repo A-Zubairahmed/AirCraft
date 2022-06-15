@@ -1,0 +1,50 @@
+﻿@model Rusada.Models.AirCraftViewModel
+
+
+ <div class="form-horizontal">
+      
+      
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Make, htmlAttributes: new { @class = "control-label col-md-2" })
+           
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Model, htmlAttributes: new { @class = "control-label col-md-2" })
+           
+        </div>
+         <div class="form-group">
+            @Html.LabelFor(model => model.Registration, htmlAttributes: new { @class = "control-label col-md-2" })
+          
+        </div>
+
+         <div class="form-group">
+            @Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "control-label col-md-2" })
+         
+        </div>
+
+       
+    </div>
+ 
+@*<script>
+{
+$("#submitdet").click(function() {
+    var aircraft=
+    {
+        Make=$("#Make").val(),
+          Location=$("#Location").val(),
+            Registration=$("#Registration").val(),
+              Model=$("#Model").val()
+
+    }
+    $.ajax('/Home/Submit', {
+        type: 'POST',
+        data: aircraft ,
+        success: function(data, status, xhr) {
+            $alert("Success");
+        }
+    });
+}
+</script>*@

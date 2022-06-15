@@ -1,8 +1,91 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model IEnumerable<Rusada.Models.AirCraftViewModel>
+@{
+    ViewBag.Title = "Index";
 
-<div class="text-center">
+}
+<style>
+    .grid-border {
+        border: 1px solid #233E8E;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        opacity: 1;
+    }
+
+    .avoid-clicks {
+        pointer-events: none;
+    }
+</style>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="grid-border">
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Model)</th>
+        <th>@Html.DisplayNameFor(model => model.Make)</th>
+        <th>@Html.DisplayNameFor(model => model.Registration)</th>
+        <th>@Html.DisplayNameFor(model => model.Location)</th>
+           <th>@Html.DisplayNameFor(model => model.Time)</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Make)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Registration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+              <td>
+                @Html.DisplayFor(modelItem => item.Time)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { Id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { Id=item.Id  }) |
+                @Html.ActionLink("Delete", "Delete", new { Id = item.Id })
+            </td>
+
+        </tr>
+    }
+    </tbody>
+</table>
+</div>
+@*<table id="jqGrid"></table>
+<div id="jqGridPager"></div>
+<script>
+    var myGrid = $('#jqGrid');
+myGrid.jqGrid({
+	  url: '/Home/GetAircrafts/',
+	  datatype: "json",
+	  contentType: "application/json; charset-utf-8",
+	  mtype: 'GET',
+	  colNames: ['ProductID', 'Name', 'Price', 'Department', 'Action'],
+	  colModel: [
+	      { name: 'Id', key: true, width: 75 },
+	      { name: 'Name', key: true, width: 200 },
+	      { name: 'Price', key: true, width: 75 },
+	      { name: 'Department', key: true, width: 200 },
+	      { name: 'Edit', key: true, width: 100, editable: true, formatter: editButton }
+	  ],
+	  rowNum: 4,
+	  pager: '#jqGridPager',
+	  gridview: true,
+	  rownumbers: true,
+	  pagerpos: 'center'
+});
+</script>*@
+
+@*<div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+</div>*@
